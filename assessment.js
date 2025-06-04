@@ -7,7 +7,7 @@ const tweetDivision = document.getElementById('tweet-area');
 userNameInput.addEventListener( // イベント検知の追加
   'keydown',// キー入力
   (event) => {
-    if (event.key === 'Enter') {// 押されたきーがEnterなら
+    if (event.key === 'Enter') {// 押されたキーがEnterなら
       assessmentButton.dispatchEvent(new Event('click'));
     }
   }
@@ -25,7 +25,7 @@ assessmentButton.addEventListener(// イベント検知
     // 診断結果表示エリアの作成
     resultDivision.innerText = ''; // divタグを空文字で上書きすることで初期化している
     const headerDivision = document.createElement('div'); // divタグを作成
-    headerDivision.setAttribute('class','card-header text-bg-primary');// divタグにクラスを追加
+    headerDivision.setAttribute('class','card-header text-bg-primary')// divタグにクラスを追加
     headerDivision.innerText = '診断結果';// divタグの中に診断結果と表示する
 
     const bodyDivision = document.createElement('div'); // divタグを作成
@@ -35,13 +35,13 @@ assessmentButton.addEventListener(// イベント検知
     paragraph.setAttribute('class', 'card-text'); // pタグにクラスを追加
     
     const result = assessment(userName);
-    paragraph.innerText = result
+    paragraph.innerText = result;
     bodyDivision.appendChild(paragraph);// pタグをdivタグの子要素として追加
 
     resultDivision.setAttribute('class', 'card'); // divタグにクラスを追加
     resultDivision.appendChild(headerDivision); // divタグの子要素として追加
     resultDivision.appendChild(bodyDivision); // divタグの子要素として追加
-
+    // TODO ツイートエリアの作成
     tweetDivision.innerText = ''; // ツイートエリアを空文字で上書きすることで初期化している
     const anchor = document.createElement('a');
     const hrefValue = 
@@ -98,14 +98,3 @@ function assessment(userName) {
   result = result.replaceAll('###userName###', userName);
   return result;// 診断結果を返す
 }
-
-// 動作確認
-function test(){
-  console.log('太郎君の場合');
-  console.assert(assessment('太郎') === '太郎のいいところは決断力です。太郎がする決断にいつも助けられる人がいます。','なんか違う')
-  console.log('次郎君の場合');
-  console.assert(assessment('次郎') === '太郎のいいところは決断力です。太郎がする決断にいつも助けられる人がいます。','なんか違う')
-  console.log('花子さんの場合');
-  console.assert(assessment('花子') === '太郎のいいところは決断力です。太郎がする決断にいつも助けられる人がいます。','なんか違う')
-}
-test();
