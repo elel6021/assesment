@@ -7,7 +7,7 @@ const tweetDivision = document.getElementById('tweet-area');
 userNameInput.addEventListener( // イベント検知の追加
   'keydown',// キー入力
   (event) => {
-    if (event.key === 'Enter') {// 長rたきーがEnterなら
+    if (event.key === 'Enter') {// 押されたきーがEnterなら
       assessmentButton.dispatchEvent(new Event('click'));
     }
   }
@@ -25,7 +25,7 @@ assessmentButton.addEventListener(// イベント検知
     // 診断結果表示エリアの作成
     resultDivision.innerText = ''; // divタグを空文字で上書きすることで初期化している
     const headerDivision = document.createElement('div'); // divタグを作成
-    headerDivision.setAttribute('class','card-header text-bg-primary')// divタグにクラスを追加
+    headerDivision.setAttribute('class','card-header text-bg-primary');// divタグにクラスを追加
     headerDivision.innerText = '診断結果';// divタグの中に診断結果と表示する
 
     const bodyDivision = document.createElement('div'); // divタグを作成
