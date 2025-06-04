@@ -23,15 +23,24 @@ assessmentButton.addEventListener(// イベント検知
     }
 
     // 診断結果表示エリアの作成
-    resultDivision.innerText = ''; // divタグを空文字で上書きすることで初期化している
-    const header = document.createElement('h3');　// h3タグを作成
-    header.innerText = '診断結果';// h3タグの中に診断結果と表示する
-    resultDivision.appendChild(header);// divタグの中にheadrを追加する
+    resultDivision.innerText = ''; // divタグを空文字で上書きすることで初期化している    const headerDivision = document.createElement('div'); // divタグを作成
+    headerDivision.setAttribute('class','card-header text-bg-primary')// divタグにクラスを追加
+    headerDivision.innerText = '診断結果';// divタグの中に診断結果と表示する
+
+    const bodyDivision = document.createElement('div'); // divタグを作成
+    bodyDivision.setAttribute('class','card-body')// divタグにクラスを追加
+
     const paragraph = document.createElement('p');// divタグの中にpタグを追加する
+    paragraph.setAttribute('class', 'card-text'); // pタグにクラスを追加
+    
     const result = assessment(userName);
     paragraph.innerText = result
-    resultDivision.appendChild(paragraph);
-    // TODO ツイートエリアの作成
+    bodyDivision.appendChild(paragraph);// pタグをdivタグの子要素として追加
+
+    resultDivision.setAttribute('class', 'card'); // divタグにクラスを追加
+    resultDivision.appendChild(headerDivision); // divタグの子要素として追加
+    resultDivision.appendChild(bodyDivision); // divタグの子要素として追加
+
     tweetDivision.innerText = ''; // ツイートエリアを空文字で上書きすることで初期化している
     const anchor = document.createElement('a');
     const hrefValue = 
