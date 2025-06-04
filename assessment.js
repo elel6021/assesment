@@ -23,7 +23,8 @@ assessmentButton.addEventListener(// イベント検知
     }
 
     // 診断結果表示エリアの作成
-    resultDivision.innerText = ''; // divタグを空文字で上書きすることで初期化している    const headerDivision = document.createElement('div'); // divタグを作成
+    resultDivision.innerText = ''; // divタグを空文字で上書きすることで初期化している
+    const headerDivision = document.createElement('div'); // divタグを作成
     headerDivision.setAttribute('class','card-header text-bg-primary')// divタグにクラスを追加
     headerDivision.innerText = '診断結果';// divタグの中に診断結果と表示する
 
